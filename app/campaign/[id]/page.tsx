@@ -13,7 +13,7 @@ export default function CampaignPage() {
 
   const load = async () => {
     const campaigns = await fetch("/api/campaigns").then((r) => r.json());
-    setCampaign(campaigns.find((c: any) => c.id === id));
+    setCampaign(campaigns.find((c: unknown) => c.id === id));
     const ideaRes = await fetch(`/api/campaigns/${id}/ideas`).then((r) => r.json());
     setIdeas(ideaRes.ideas);
     setTop10(ideaRes.top10);
